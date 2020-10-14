@@ -1,0 +1,10 @@
+version: '3'
+services:
+  bank:
+    image: com.anish/bank-account-service:0.0.1
+    container_name: bank_service
+    restart: always
+    ports:
+      - 8082:8082
+    healthcheck:
+      test: "exit 0"
