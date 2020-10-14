@@ -8,8 +8,18 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean install '
+                sh 'mvn -B -DskipTests clean install'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('Deliver') { 
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }        
     }
 }
